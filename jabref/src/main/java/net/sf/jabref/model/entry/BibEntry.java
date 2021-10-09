@@ -373,6 +373,16 @@ public class BibEntry {
                 throw new IllegalArgumentException("The year must be an integer number");
             }
         }
+        
+        if (fieldName.equals("key")) {
+	        if (value.length() < 2) {
+	            throw new IllegalArgumentException("The key field must contain at least two characters");
+	        }
+	        if (Character.isLetter(value.charAt(1)) == false) {
+	            throw new IllegalArgumentException("The key field must contain a letter on the first character");
+	        }
+
+        }
 
         changed = true;
 
